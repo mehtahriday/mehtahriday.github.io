@@ -1,0 +1,856 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Hriday Mehta — Product Manager. Curious, sharp, ambitious, and slightly unconventional.">
+<title>Hriday Mehta — Product Manager</title>
+
+<style>
+:root{
+  --bg:#ffffff;
+  --text:#121212;
+  --muted:#555555;
+  --rule:#dddddd;
+  --navy:#18364A;
+  --navy-soft:#F4F8FB;
+  --rust:#C95B2B;
+  --green:#234A3B;
+  --max:1180px;
+  --pad:clamp(20px,4vw,54px);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  overflow-x:hidden;
+  -webkit-text-size-adjust:100%;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Helvetica, Arial, sans-serif;
+  line-height:1.5;
+  text-rendering:optimizeLegibility;
+}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:3px solid var(--rust);outline-offset:4px}
+img{max-width:100%;display:block}
+
+.shell{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.topbar{
+  min-height:74px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid var(--rule);
+  position:relative;
+  z-index:5;
+  background:#fff;
+}
+.brand{
+  font-size:16px;
+  font-weight:700;
+  letter-spacing:-.02em;
+}
+.nav{
+  display:flex;
+  gap:22px;
+  font-size:13px;
+  font-weight:600;
+}
+.nav a{
+  padding:6px 0;
+  border-bottom:1px solid transparent;
+}
+.nav a:hover{border-color:var(--text)}
+.menu{
+  display:none;
+  border:0;
+  background:none;
+  font:inherit;
+  font-weight:700;
+  min-width:44px;
+  min-height:44px;
+  color:var(--text);
+}
+
+/* HERO */
+.hero{
+  padding:clamp(60px,9vw,110px) 0 70px;
+  display:grid;
+  grid-template-columns:minmax(0,1.1fr) minmax(300px,.75fr);
+  gap:6vw;
+  align-items:center;
+}
+.kicker{
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--navy);
+}
+.hero h1{
+  margin:12px 0 22px;
+  font-size:clamp(56px,8vw,108px);
+  line-height:.9;
+  letter-spacing:-.06em;
+  font-weight:700;
+}
+.hero h1 .normal{
+  color:var(--text);
+}
+.hero h1 .accent{
+  color:var(--rust);
+  font-family:"Times New Roman", Times, serif;
+  font-weight:700;
+  display:block;
+}
+.hero p{
+  max-width:690px;
+  margin:0;
+  font-size:clamp(18px,2vw,24px);
+  color:var(--muted);
+}
+.hero-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px 22px;
+  margin-top:28px;
+  font-size:13px;
+  font-weight:700;
+}
+.hero-links a{
+  border-bottom:1px solid var(--text);
+  padding-bottom:3px;
+}
+.hero-links a:hover{color:var(--rust);border-color:var(--rust)}
+
+.portrait-wrap{
+  position:relative;
+  width:min(100%,410px);
+  justify-self:end;
+}
+.portrait-shadow{
+  position:absolute;
+  inset:18px -14px -18px 14px;
+  background:var(--navy);
+  z-index:0;
+}
+.portrait{
+  position:relative;
+  z-index:1;
+  border:2px solid var(--text);
+  background:#fff;
+}
+.portrait-note{
+  position:absolute;
+  left:-20px;
+  bottom:18px;
+  z-index:2;
+  background:#fff;
+  border:1px solid var(--text);
+  padding:9px 12px;
+  font-size:12px;
+  font-weight:700;
+  transform:rotate(-4deg);
+}
+
+/* STRIP */
+.idea-strip{
+  margin:0 calc(var(--pad)*-1);
+  background:var(--navy);
+  color:#fff;
+  padding:40px var(--pad) 46px;
+}
+.idea-strip-grid{
+  display:grid;
+  grid-template-columns:170px 1fr;
+  gap:28px;
+  align-items:start;
+}
+.idea-strip .label{
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#B8D0DF;
+}
+.idea-strip p{
+  margin:0;
+  max-width:920px;
+  font-size:clamp(28px,4vw,48px);
+  line-height:1.08;
+  letter-spacing:-.04em;
+  font-family:"Times New Roman", Times, serif;
+}
+.idea-strip p .accent{color:#F0B59A}
+
+/* GENERAL */
+section{padding:80px 0}
+.section-head{
+  display:grid;
+  grid-template-columns:150px 1fr;
+  gap:34px;
+  margin-bottom:40px;
+}
+.section-head .label{
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--navy);
+}
+.section-head h2{
+  margin:0;
+  font-size:clamp(38px,5vw,70px);
+  line-height:.98;
+  letter-spacing:-.055em;
+  font-weight:700;
+}
+.section-head p{
+  max-width:670px;
+  margin:15px 0 0;
+  color:var(--muted);
+  font-size:16px;
+}
+
+/* WORK */
+.work-block{
+  border-top:1px solid var(--rule);
+}
+.work-one{
+  display:grid;
+  grid-template-columns:1.1fr .55fr;
+  gap:6vw;
+  padding:34px 0 74px;
+  align-items:start;
+}
+.case-tag{
+  font-size:12px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--green);
+}
+.work-one h3,.work-three h3{
+  margin:10px 0 14px;
+  font-size:clamp(30px,3.8vw,50px);
+  line-height:1.04;
+  letter-spacing:-.045em;
+}
+.case-copy{
+  color:var(--muted);
+  max-width:700px;
+}
+.metric{
+  border-left:4px solid var(--rust);
+  padding-left:18px;
+  margin-top:6px;
+}
+.metric strong{
+  display:block;
+  font-size:clamp(42px,5vw,68px);
+  line-height:.9;
+  letter-spacing:-.06em;
+}
+.metric span{
+  display:block;
+  margin-top:10px;
+  color:var(--muted);
+  font-size:13px;
+}
+.work-two{
+  margin:0 calc(var(--pad)*-1);
+  padding:54px var(--pad) 58px;
+  background:var(--navy-soft);
+  display:grid;
+  grid-template-columns:.48fr 1fr;
+  gap:6vw;
+  align-items:end;
+}
+.growth-metric{
+  display:flex;
+  align-items:baseline;
+  flex-wrap:wrap;
+  gap:.08em .18em;
+  color:var(--navy);
+  font-size:clamp(50px,7vw,96px);
+  line-height:.92;
+  font-weight:700;
+  letter-spacing:-.055em;
+}
+.growth-metric .arrow{
+  font-family:"Times New Roman", Times, serif;
+  font-size:.78em;
+  color:var(--rust);
+  letter-spacing:0;
+}
+.work-two .small-note{
+  margin-top:16px;
+  color:var(--muted);
+  font-size:13px;
+  max-width:300px;
+}
+.work-two h3{
+  margin:10px 0 14px;
+  font-size:clamp(34px,4.6vw,62px);
+  line-height:1;
+  letter-spacing:-.05em;
+}
+.work-two p{max-width:720px;color:var(--muted)}
+
+.work-three{
+  display:grid;
+  grid-template-columns:.72fr 1.08fr;
+  gap:6vw;
+  padding:78px 0 6px;
+  align-items:center;
+}
+.system-map{
+  border:1px solid var(--rule);
+  background:#fff;
+  padding:18px;
+}
+.system-map svg{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:5 / 3;
+}
+.system-map .flow-line{
+  stroke:#7A7A7A;
+  stroke-width:2;
+}
+.system-map .flow-box{
+  fill:#fff;
+  stroke:var(--text);
+  stroke-width:2;
+}
+.system-map .flow-center{
+  fill:var(--rust);
+  stroke:var(--text);
+  stroke-width:2;
+}
+.system-map text{
+  font-family:Helvetica, Arial, sans-serif;
+  font-size:16px;
+  font-weight:700;
+  fill:var(--text);
+  text-anchor:middle;
+  dominant-baseline:middle;
+}
+.system-map .center-text{
+  fill:#fff;
+  font-size:17px;
+}
+
+/* THINKING */
+.thinking{
+  padding-top:110px;
+}
+.thinking-grid{
+  display:grid;
+  grid-template-columns:minmax(0,.78fr) minmax(420px,1.22fr);
+  gap:6vw;
+  align-items:start;
+}
+.thinking-copy{
+  position:sticky;
+  top:110px;
+}
+.thinking-copy h2{
+  margin:10px 0 18px;
+  font-size:clamp(40px,5.4vw,74px);
+  line-height:.97;
+  letter-spacing:-.055em;
+}
+.thinking-copy p{
+  max-width:500px;
+  color:var(--muted);
+}
+.route-board{
+  border-top:1px solid var(--text);
+  border-bottom:1px solid var(--text);
+  padding:24px 0 18px;
+}
+.objective{
+  font-size:12px;
+  font-weight:700;
+  color:var(--rust);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  margin-bottom:20px;
+}
+.route{
+  display:grid;
+  grid-template-columns:58px 1fr;
+  gap:16px;
+  padding:18px 0;
+  border-top:1px solid var(--rule);
+}
+.route:last-child{border-bottom:1px solid var(--rule)}
+.route-no{
+  font-size:12px;
+  font-weight:700;
+  color:var(--navy);
+}
+.route strong{
+  display:block;
+  font-size:20px;
+  margin-bottom:4px;
+}
+.route span{color:var(--muted)}
+.route.highlight{
+  margin:0 -12px;
+  padding-left:12px;
+  padding-right:12px;
+  background:var(--navy-soft);
+}
+
+/* SIDE QUESTS */
+#sidequests{
+  padding-top:78px;
+  padding-bottom:42px;
+}
+#making{
+  padding-top:48px;
+  padding-bottom:76px;
+}
+.sidequests-grid{
+  display:grid;
+  grid-template-columns:1.08fr .92fr;
+  gap:6vw;
+  align-items:start;
+}
+.sidequests-grid h2{
+  margin:10px 0 18px;
+  font-size:clamp(40px,5vw,70px);
+  line-height:.97;
+  letter-spacing:-.05em;
+}
+.sidequests-grid p{
+  max-width:650px;
+  color:var(--muted);
+}
+.note-card{
+  margin-top:30px;
+  max-width:520px;
+  border:1px solid var(--text);
+  background:#fff;
+  padding:20px 22px;
+}
+.note-card strong{color:var(--green)}
+.quest-list{border-top:1px solid var(--rule)}
+.quest{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding:16px 0;
+  border-bottom:1px solid var(--rule);
+  font-size:15px;
+}
+.quest small{
+  color:var(--rust);
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.07em;
+}
+
+/* WRITING + BUILDING */
+.makers{
+  display:grid;
+  grid-template-columns:.93fr 1.07fr;
+  gap:6vw;
+  align-items:start;
+}
+.panel{
+  border-top:4px solid var(--text);
+  padding-top:18px;
+}
+.panel.offset{margin-top:64px}
+.panel h3{
+  margin:4px 0 12px;
+  font-size:clamp(30px,3.6vw,46px);
+  line-height:1.02;
+  letter-spacing:-.04em;
+}
+.panel p{color:var(--muted);max-width:620px}
+.panel-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:16px 18px;
+  margin-top:22px;
+  font-size:13px;
+  font-weight:700;
+}
+.panel-links a{
+  border-bottom:1px solid var(--text);
+  padding-bottom:3px;
+}
+.panel-links a:hover{color:var(--rust);border-color:var(--rust)}
+
+/* CONTACT */
+.contact{
+  margin:88px calc(var(--pad)*-1) 0;
+  background:var(--navy);
+  color:#fff;
+  padding:68px var(--pad) 64px;
+}
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 180px;
+  gap:5vw;
+  align-items:end;
+}
+.contact h2{
+  margin:0;
+  max-width:900px;
+  font-size:clamp(50px,6.8vw,94px);
+  line-height:.9;
+  letter-spacing:-.06em;
+}
+.contact p{
+  max-width:620px;
+  margin:20px 0 0;
+  color:#C7D7E1;
+}
+.contact .label{
+  color:#B8D0DF;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.contact .panel-links a{border-color:#fff}
+.contact-avatar{
+  width:165px;
+  height:165px;
+  object-fit:cover;
+  border-radius:50%;
+  border:2px solid #fff;
+  background:#fff;
+}
+
+footer{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding:26px 0 42px;
+  color:#666;
+  font-size:11px;
+  font-weight:700;
+}
+
+@media(max-width:920px){
+  .growth-metric{
+    font-size:clamp(46px,11vw,72px);
+  }
+  .hero,
+  .work-one,
+  .work-three,
+  .thinking-grid,
+  .sidequests-grid,
+  .makers,
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+  .portrait-wrap{justify-self:start;width:min(80vw,400px)}
+  .work-two{grid-template-columns:1fr}
+  .thinking-copy{position:static}
+  .panel.offset{margin-top:0}
+}
+@media(max-width:760px){
+  .nav{
+    display:none;
+    position:absolute;
+    top:74px;
+    left:var(--pad);
+    right:var(--pad);
+    background:#fff;
+    border-top:1px solid var(--rule);
+    border-bottom:1px solid var(--rule);
+    flex-direction:column;
+    gap:0;
+    padding:14px 0;
+  }
+  .nav.open{display:flex}
+  .nav a{padding:11px 0}
+  .menu{display:inline-flex;align-items:center;justify-content:flex-end}
+  .section-head,
+  .idea-strip-grid{grid-template-columns:1fr;gap:16px}
+}
+@media(max-width:540px){
+  .hero h1{font-size:54px}
+  .growth-metric{
+    font-size:44px;
+    gap:.04em .14em;
+  }
+  .work-two{
+    padding-top:42px;
+    padding-bottom:46px;
+  }
+  #sidequests{
+    padding-bottom:30px;
+  }
+  #making{
+    padding-top:34px;
+  }
+  .hero h1 .accent{display:inline}
+  .portrait-note{left:8px}
+  .section-head h2,.thinking-copy h2,.sidequests-grid h2{font-size:42px}
+  .system-map{min-height:280px}
+  .contact h2{font-size:52px}
+  footer{flex-direction:column}
+}
+
+@supports (-webkit-touch-callout: none){
+  @media(max-width:920px){
+    .thinking-copy{position:static}
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+<header class="topbar">
+  <a class="brand" href="#top">HRIDAY MEHTA</a>
+  <nav class="nav" id="nav" aria-label="Primary">
+    <a href="#work">Work</a>
+    <a href="#thinking">Thinking</a>
+    <a href="#sidequests">Side quests</a>
+    <a href="#making">Writing & building</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <button class="menu" id="menuButton" aria-controls="nav" aria-expanded="false">Menu</button>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div>
+    <div class="kicker">Product thinker + ambitious builder</div>
+    <h1><span class="normal">I like messy</span> <span class="accent">problems.</span></h1>
+    <p>
+      Product Manager at Axis Bank. I like systems with awkward constraints, problems that need one extra question, and work that gets more interesting once you stop accepting the first obvious answer.
+    </p>
+    <div class="hero-links">
+      <a href="https://www.linkedin.com/in/hridaymehta56" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href="https://github.com/mehtahriday" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="https://substack.com/@hridaymprodman" target="_blank" rel="noreferrer">Substack</a>
+    </div>
+  </div>
+
+  <div class="portrait-wrap" aria-label="Illustrated portrait of Hriday Mehta">
+    <div class="portrait-shadow"></div>
+    <img class="portrait" src="hriday-avatar.jpg" alt="Illustrated portrait of Hriday Mehta" width="900" height="900" decoding="async" fetchpriority="high">
+    <div class="portrait-note">Yes, this is me as a character.</div>
+  </div>
+</section>
+
+<div class="idea-strip">
+  <div class="idea-strip-grid">
+    <div class="label">The operating principle</div>
+    <p>The first solution is often just the <span class="accent">first visible route.</span> I care more about the actual objective than defending the route we started with.</p>
+  </div>
+</div>
+
+<section id="work">
+  <div class="section-head">
+    <div class="label">Selected work</div>
+    <div>
+      <h2>Three product problems. Three very different shapes.</h2>
+      <p>Public-safe portfolio version. Real work, real metrics, and enough context to show how I think — without dumping confidential internals onto the page.</p>
+    </div>
+  </div>
+
+  <div class="work-block">
+    <article class="work-one">
+      <div>
+        <div class="case-tag">01 / Customer journey</div>
+        <h3>From redirect friction to a native partner experience.</h3>
+        <p class="case-copy">The earlier partner flow depended on a redirect / WebView experience. We changed the model: expose the right backend APIs, let partner applications host the journey natively, and remove a layer of friction the customer never asked for.</p>
+      </div>
+      <div class="metric">
+        <strong>51% → 75%</strong>
+        <span>Journey completion after moving toward a native API-led partner experience.</span>
+      </div>
+    </article>
+
+    <article class="work-two">
+      <div>
+        <div class="growth-metric" aria-label="Monthly transactions grew from approximately 4 thousand to 12 thousand">
+  <span>~4K</span><span class="arrow">→</span><span>12K</span>
+</div>
+        <div class="small-note">Monthly transactions scaled during the period I worked on the product.</div>
+      </div>
+      <div>
+        <div class="case-tag">02 / Scale</div>
+        <h3>Growth was not one feature. It was a lot of small removals of friction.</h3>
+        <p>Journey improvements. Product fixes. Operational bottlenecks. Platform capabilities. Post-launch iteration. The product scaled because the system around the customer kept getting better.</p>
+      </div>
+    </article>
+
+    <article class="work-three">
+      <div class="system-map" aria-label="System map showing multiple systems feeding one customer journey">
+        <svg viewBox="0 0 600 360" role="img" aria-labelledby="systemMapTitle systemMapDesc">
+          <title id="systemMapTitle">Systems behind the customer journey</title>
+          <desc id="systemMapDesc">Authentication, pricing and FX, core banking, and operations connect into one customer journey.</desc>
+
+          <line class="flow-line" x1="180" y1="90" x2="300" y2="180"></line>
+          <line class="flow-line" x1="420" y1="90" x2="300" y2="180"></line>
+          <line class="flow-line" x1="180" y1="270" x2="300" y2="180"></line>
+          <line class="flow-line" x1="420" y1="270" x2="300" y2="180"></line>
+
+          <rect class="flow-box" x="55" y="48" width="170" height="62" rx="4"></rect>
+          <text x="140" y="79">Authentication</text>
+
+          <rect class="flow-box" x="375" y="48" width="170" height="62" rx="4"></rect>
+          <text x="460" y="79">Pricing / FX</text>
+
+          <rect class="flow-box" x="55" y="250" width="170" height="62" rx="4"></rect>
+          <text x="140" y="281">Core banking</text>
+
+          <rect class="flow-box" x="375" y="250" width="170" height="62" rx="4"></rect>
+          <text x="460" y="281">Operations</text>
+
+          <rect class="flow-center" x="205" y="143" width="190" height="74" rx="4"></rect>
+          <text class="center-text" x="300" y="180">Customer journey</text>
+        </svg>
+      </div>
+      <div>
+        <div class="case-tag">03 / Systems</div>
+        <h3>The customer should not have to understand the backend.</h3>
+        <p class="case-copy">Financial products sit across authentication, pricing, core banking, partner platforms, transaction systems, compliance checks and operations. My job is to understand that complexity without exporting it to the customer.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="thinking" class="thinking">
+  <div class="thinking-grid">
+    <div class="thinking-copy">
+      <div class="kicker">How I think</div>
+      <h2>The door is not the problem.</h2>
+      <p>If the goal is to get to the other side, breaking the door is just one option. Sometimes it is right. Sometimes it is lazy. I like looking at the whole system before choosing the route.</p>
+    </div>
+
+    <div class="route-board">
+      <div class="objective">Objective: get to the other side</div>
+
+      <div class="route">
+        <div class="route-no">A</div>
+        <div><strong>Break the door</strong><span>The obvious answer. Sometimes correct. Sometimes just familiar.</span></div>
+      </div>
+
+      <div class="route highlight">
+        <div class="route-no">B</div>
+        <div><strong>Question the constraint</strong><span>Do we need the door? Is the wall easier? Can the journey be redesigned?</span></div>
+      </div>
+
+      <div class="route">
+        <div class="route-no">C</div>
+        <div><strong>Find the lower-resistance route</strong><span>Jump. Go around. Dig. Remove the wall. Use what actually works.</span></div>
+      </div>
+
+      <div class="route">
+        <div class="route-no">D</div>
+        <div><strong>Then measure it</strong><span>A clever answer that does not improve the outcome is still the wrong answer.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sidequests">
+  <div class="sidequests-grid">
+    <div>
+      <div class="kicker">A little character, not a biography</div>
+      <h2>I collect ideas from places product books do not usually look.</h2>
+      <p>Football, manga, anime, films, TV, writing — I like anything that gives me another model for people, systems, competition, obsession, strategy, or failure.</p>
+      <div class="note-card"><strong>Rule for this section:</strong> references are welcome. Oversharing is not.</div>
+    </div>
+
+    <div class="quest-list">
+      <div class="quest"><span>Football</span><small>systems / space / decisions</small></div>
+      <div class="quest"><span>Anime & manga</span><small>character / ambition / worlds</small></div>
+      <div class="quest"><span>Films & TV</span><small>people / conflict / perspective</small></div>
+      <div class="quest"><span>Writing</span><small>clarity through expression</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="making">
+  <div class="section-head">
+    <div class="label">Writing & building</div>
+    <div>
+      <h2>I think better when I make something.</h2>
+    </div>
+  </div>
+
+  <div class="makers">
+    <div class="panel">
+      <div class="case-tag">Writing</div>
+      <h3>Product on LinkedIn. Everything else on Substack.</h3>
+      <p>I do not want to publish just because the algorithm wants consistency. I would rather take one thing I actually care about, form an opinion, and explain it clearly.</p>
+      <div class="panel-links">
+        <a href="https://www.linkedin.com/in/hridaymehta56" target="_blank" rel="noreferrer">Read on LinkedIn</a>
+        <a href="https://substack.com/@hridaymprodman" target="_blank" rel="noreferrer">Read on Substack</a>
+      </div>
+    </div>
+
+    <div class="panel offset">
+      <div class="case-tag">Building</div>
+      <h3>Sometimes the fastest way to understand an idea is to build a rough version.</h3>
+      <p>I use Python, AI tools, automation and small prototypes when they help me learn faster. I am not trying to cosplay as an engineer. I want enough technical depth to ask better questions and test ideas before they become expensive.</p>
+      <div class="panel-links">
+        <a href="https://github.com/mehtahriday" target="_blank" rel="noreferrer">See GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="contact-grid">
+    <div>
+      <div class="label">Contact</div>
+      <h2>Interesting problem? I am probably interested.</h2>
+      <p>Product roles, fintech, AI, digital platforms, weird product questions, or simply something worth thinking about.</p>
+      <div class="panel-links">
+        <a href="mailto:mehtahriday5@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/hridaymehta56" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="https://github.com/mehtahriday" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </div>
+    <img class="contact-avatar" src="hriday-avatar.jpg" alt="Illustrated portrait of Hriday Mehta" width="900" height="900" loading="lazy" decoding="async">
+  </div>
+</section>
+</main>
+
+<footer>
+  <span>Hriday Mehta / Product Manager</span>
+  <span>Mumbai / 2026</span>
+</footer>
+</div>
+
+<script>
+const button=document.getElementById('menuButton');
+const nav=document.getElementById('nav');
+button.addEventListener('click',()=>{
+  const open=nav.classList.toggle('open');
+  button.setAttribute('aria-expanded',String(open));
+  button.textContent=open?'Close':'Menu';
+});
+nav.querySelectorAll('a').forEach(link=>{
+  link.addEventListener('click',()=>{
+    nav.classList.remove('open');
+    button.setAttribute('aria-expanded','false');
+    button.textContent='Menu';
+  });
+});
+</script>
+</body>
+</html>
