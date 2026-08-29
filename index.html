@@ -1,1057 +1,705 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Hriday Mehta — Product Manager. Curious, sharp, ambitious, and slightly unconventional.">
-<title>Hriday Mehta — Product Manager</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hriday Mehta is a Product Manager working on fintech, digital banking, payments, customer journeys, APIs and complex product systems.">
+  <meta name="theme-color" content="#0b0c0d">
+  <title>Hriday Mehta — Product Manager</title>
+  <style>
+    :root {
+      --bg: #0b0c0d;
+      --surface: #131517;
+      --surface-2: #1a1d20;
+      --ink: #f1eee5;
+      --muted: #aaa9a3;
+      --dim: #747670;
+      --line: #34373a;
+      --orange: #ff633f;
+      --acid: #d6ff4f;
+      --blue: #71b7ff;
+      --pink: #ff8aa6;
+      --yellow: #ffc94a;
+      --page: min(94vw, 1720px);
+      --sans: Arial, Helvetica, sans-serif;
+      --serif: Georgia, "Times New Roman", serif;
+    }
 
-<style>
-:root{
-  --bg:#ffffff;
-  --text:#121212;
-  --muted:#555555;
-  --rule:#dddddd;
-  --navy:#18364A;
-  --navy-soft:#F4F8FB;
-  --rust:#C95B2B;
-  --green:#234A3B;
-  --max:1180px;
-  --pad:clamp(20px,4vw,54px);
-}
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.5;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  overflow-x:hidden;
-  -webkit-text-size-adjust:100%;
-  background:var(--bg);
-  color:var(--text);
-  font-family:Helvetica, Arial, sans-serif;
-  line-height:1.5;
-  text-rendering:optimizeLegibility;
-}
-a{color:inherit;text-decoration:none}
-a:focus-visible,button:focus-visible{outline:3px solid var(--rust);outline-offset:4px}
-img{max-width:100%;display:block}
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    p { margin: 0; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: 2px solid var(--acid); outline-offset: 5px; }
+    ::selection { background: var(--orange); color: #080808; }
 
-.shell{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
-.topbar{
-  min-height:74px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  border-bottom:1px solid var(--rule);
-  position:relative;
-  z-index:5;
-  background:#fff;
-}
-.brand{
-  font-size:16px;
-  font-weight:700;
-  letter-spacing:-.02em;
-}
-.nav{
-  display:flex;
-  gap:22px;
-  font-size:13px;
-  font-weight:600;
-}
-.nav a{
-  padding:6px 0;
-  border-bottom:1px solid transparent;
-}
-.nav a:hover{border-color:var(--text)}
-.menu{
-  display:none;
-  border:0;
-  background:none;
-  font:inherit;
-  font-weight:700;
-  min-width:44px;
-  min-height:44px;
-  color:var(--text);
-}
+    .skip {
+      position: fixed;
+      left: 1rem;
+      top: 1rem;
+      z-index: 100;
+      padding: .7rem 1rem;
+      background: var(--acid);
+      color: #080808;
+      font-weight: 800;
+      transform: translateY(-180%);
+      transition: transform .2s ease;
+    }
+    .skip:focus { transform: translateY(0); }
 
-/* HERO */
-.hero{
-  padding:clamp(60px,9vw,110px) 0 70px;
-  display:grid;
-  grid-template-columns:minmax(0,1.1fr) minmax(300px,.75fr);
-  gap:6vw;
-  align-items:center;
-}
-.kicker{
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--navy);
-}
-.hero h1{
-  margin:12px 0 22px;
-  font-size:clamp(56px,8vw,108px);
-  line-height:.9;
-  letter-spacing:-.06em;
-  font-weight:700;
-}
-.hero h1 .normal{
-  color:var(--text);
-}
-.hero h1 .accent{
-  color:var(--rust);
-  font-family:"Times New Roman", Times, serif;
-  font-weight:700;
-  display:block;
-}
-.hero p{
-  max-width:690px;
-  margin:0;
-  font-size:clamp(18px,2vw,24px);
-  color:var(--muted);
-}
-.hero-links{
-  display:flex;
-  flex-wrap:wrap;
-  gap:14px 22px;
-  margin-top:28px;
-  font-size:13px;
-  font-weight:700;
-}
-.hero-links a{
-  border-bottom:1px solid var(--text);
-  padding-bottom:3px;
-}
-.hero-links a:hover{color:var(--rust);border-color:var(--rust)}
+    .shell { width: var(--page); margin-inline: auto; }
+    .kicker {
+      font-size: .69rem;
+      font-weight: 800;
+      letter-spacing: .18em;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+    .orange { color: var(--orange); }
+    .muted { color: var(--muted); }
 
-.portrait-wrap{
-  position:relative;
-  width:min(100%,330px);
-  justify-self:end;
-}
-.portrait-shadow{
-  position:absolute;
-  inset:18px -14px -18px 14px;
-  background:var(--navy);
-  z-index:0;
-}
-.portrait{
-  position:relative;
-  z-index:1;
-  width:100%;
-  height:auto;
-  border:2px solid var(--text);
-  background:#fff;
-}
-.portrait-note{
-  position:absolute;
-  left:-20px;
-  bottom:18px;
-  z-index:2;
-  background:#fff;
-  border:1px solid var(--text);
-  padding:9px 12px;
-  font-size:12px;
-  font-weight:700;
-  transform:rotate(-4deg);
-}
+    .site-nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .wordmark {
+      flex: 0 0 auto;
+      font-size: .98rem;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+    .wordmark i { color: var(--orange); font-style: normal; }
+    .nav-links { display: flex; gap: clamp(1.1rem, 2.5vw, 3rem); align-items: center; }
+    .nav-links a {
+      color: var(--muted);
+      font-size: .82rem;
+      transition: color .2s ease;
+    }
+    .nav-links a:hover { color: var(--ink); }
 
-/* STRIP */
-.idea-strip{
-  margin:0 calc(var(--pad)*-1);
-  background:var(--navy);
-  color:#fff;
-  padding:40px var(--pad) 46px;
-}
-.idea-strip-grid{
-  display:grid;
-  grid-template-columns:170px 1fr;
-  gap:28px;
-  align-items:start;
-}
-.idea-strip .label{
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:#B8D0DF;
-}
-.idea-strip p{
-  margin:0;
-  max-width:920px;
-  font-size:clamp(28px,4vw,48px);
-  line-height:1.08;
-  letter-spacing:-.04em;
-  font-family:"Times New Roman", Times, serif;
-}
-.idea-strip p .accent{color:#F0B59A}
+    .hero {
+      min-height: min(830px, calc(100svh - 76px));
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(280px, .58fr);
+      gap: clamp(3rem, 7vw, 9rem);
+      align-items: center;
+      padding: clamp(3.2rem, 6vw, 7rem) 2.5vw clamp(4rem, 7vw, 7.5rem);
+    }
+    .hero-copy { align-self: center; }
+    .hero h1 {
+      max-width: 10.7ch;
+      margin: .28em 0 .26em;
+      font-size: clamp(4.15rem, 9.15vw, 11.2rem);
+      font-weight: 800;
+      line-height: .83;
+      letter-spacing: -.078em;
+    }
+    .hero h1 .last-line { display: block; padding-left: clamp(.15rem, 4vw, 4.5rem); }
+    .hero-deck {
+      max-width: 730px;
+      color: #c7c6c0;
+      font-size: clamp(1.03rem, 1.35vw, 1.42rem);
+      line-height: 1.55;
+    }
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem 1.7rem;
+      margin-top: clamp(1.8rem, 3vw, 3rem);
+    }
+    .social-row a {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding-bottom: .15rem;
+      border-bottom: 1px solid #777;
+      font-size: .84rem;
+      font-weight: 700;
+    }
+    .social-row a span { color: var(--orange); }
+    .social-row a:hover { border-color: var(--orange); }
 
-/* GENERAL */
-section{padding:80px 0}
-.section-head{
-  display:grid;
-  grid-template-columns:150px 1fr;
-  gap:34px;
-  margin-bottom:40px;
-}
-.section-head .label{
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--navy);
-}
-.section-head h2{
-  margin:0;
-  font-size:clamp(38px,5vw,70px);
-  line-height:.98;
-  letter-spacing:-.055em;
-  font-weight:700;
-}
-.section-head p{
-  max-width:670px;
-  margin:15px 0 0;
-  color:var(--muted);
-  font-size:16px;
-}
+    .portrait-block { justify-self: center; width: min(100%, 350px); }
+    .portrait-frame {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: var(--surface-2);
+      border: 1px solid #65676a;
+      box-shadow: 14px 14px 0 var(--orange);
+    }
+    .portrait-frame::before {
+      content: "HM";
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: #2d3033;
+      font-size: clamp(5rem, 10vw, 9rem);
+      font-weight: 900;
+      letter-spacing: -.1em;
+    }
+    .portrait-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; position: relative; }
+    .portrait-frame img.is-missing { display: none; }
+    .portrait-caption {
+      margin-top: 1.15rem;
+      color: var(--muted);
+      font-family: var(--serif);
+      font-size: .83rem;
+      font-style: italic;
+      text-align: center;
+    }
 
-/* WORK */
-.work-block{
-  border-top:1px solid var(--rule);
-}
-.work-one{
-  display:grid;
-  grid-template-columns:1.1fr .55fr;
-  gap:6vw;
-  padding:34px 0 74px;
-  align-items:start;
-}
-.case-tag{
-  font-size:12px;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-  color:var(--green);
-}
-.work-one h3,.work-three h3{
-  margin:10px 0 14px;
-  font-size:clamp(30px,3.8vw,50px);
-  line-height:1.04;
-  letter-spacing:-.045em;
-}
-.case-copy{
-  color:var(--muted);
-  max-width:700px;
-}
-.metric{
-  border-left:4px solid var(--rust);
-  padding-left:18px;
-  margin-top:6px;
-}
-.metric strong{
-  display:block;
-  font-size:clamp(42px,5vw,68px);
-  line-height:.9;
-  letter-spacing:-.06em;
-}
-.metric span{
-  display:block;
-  margin-top:10px;
-  color:var(--muted);
-  font-size:13px;
-}
-.work-two{
-  margin:0 calc(var(--pad)*-1);
-  padding:54px var(--pad) 58px;
-  background:var(--navy-soft);
-  display:grid;
-  grid-template-columns:.48fr 1fr;
-  gap:6vw;
-  align-items:end;
-}
-.growth-metric{
-  display:flex;
-  align-items:baseline;
-  flex-wrap:wrap;
-  gap:.08em .18em;
-  color:var(--navy);
-  font-size:clamp(50px,7vw,96px);
-  line-height:.92;
-  font-weight:700;
-  letter-spacing:-.055em;
-}
-.growth-metric .arrow{
-  font-family:"Times New Roman", Times, serif;
-  font-size:.78em;
-  color:var(--rust);
-  letter-spacing:0;
-}
-.work-two .small-note{
-  margin-top:16px;
-  color:var(--muted);
-  font-size:13px;
-  max-width:300px;
-}
-.work-two h3{
-  margin:10px 0 14px;
-  font-size:clamp(34px,4.6vw,62px);
-  line-height:1;
-  letter-spacing:-.05em;
-}
-.work-two p{max-width:720px;color:var(--muted)}
+    .principle {
+      border-block: 1px solid #e7e1d5;
+      background: var(--ink);
+      color: #0a0b0c;
+    }
+    .principle-grid {
+      min-height: 245px;
+      display: grid;
+      grid-template-columns: .4fr 1.45fr .35fr;
+      gap: clamp(2rem, 5vw, 7rem);
+      align-items: center;
+      padding: clamp(2.5rem, 4vw, 4.8rem) 3vw;
+    }
+    .principle-text {
+      max-width: 1050px;
+      font-size: clamp(1.65rem, 3.25vw, 4rem);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -.045em;
+    }
+    .principle-note {
+      justify-self: end;
+      align-self: end;
+      padding-bottom: .25rem;
+      font-family: var(--serif);
+      font-size: .78rem;
+      font-style: italic;
+      color: #52514d;
+      transform: rotate(-4deg);
+    }
 
-.work-three{
-  display:grid;
-  grid-template-columns:.72fr 1.08fr;
-  gap:6vw;
-  padding:78px 0 6px;
-  align-items:center;
-}
-.system-map{
-  border:1px solid var(--rule);
-  background:#fff;
-  padding:18px;
-}
-.system-map svg{
-  display:block;
-  width:100%;
-  height:auto;
-  aspect-ratio:5 / 3;
-}
-.system-map .flow-line{
-  stroke:#7A7A7A;
-  stroke-width:2;
-}
-.system-map .flow-box{
-  fill:#fff;
-  stroke:var(--text);
-  stroke-width:2;
-}
-.system-map .flow-center{
-  fill:var(--rust);
-  stroke:var(--text);
-  stroke-width:2;
-}
-.system-map text{
-  font-family:Helvetica, Arial, sans-serif;
-  font-size:16px;
-  font-weight:700;
-  fill:var(--text);
-  text-anchor:middle;
-  dominant-baseline:middle;
-}
-.system-map .center-text{
-  fill:#fff;
-  font-size:17px;
-}
+    .work { padding-top: clamp(5rem, 9vw, 10.5rem); }
+    .section-lead {
+      display: grid;
+      grid-template-columns: .35fr 1fr .55fr;
+      gap: clamp(2rem, 5vw, 6rem);
+      align-items: start;
+      margin: 0 3vw clamp(4.5rem, 8vw, 9rem);
+    }
+    .section-lead h2,
+    .thinking-title h2,
+    .character-title h2,
+    .making h2 {
+      margin: 0;
+      font-size: clamp(2.8rem, 5.6vw, 7rem);
+      font-weight: 800;
+      line-height: .92;
+      letter-spacing: -.06em;
+    }
+    .section-lead .context { max-width: 440px; color: var(--muted); line-height: 1.65; }
 
-/* THINKING */
-.thinking{
-  padding-top:110px;
-}
-.thinking-grid{
-  display:grid;
-  grid-template-columns:minmax(0,.78fr) minmax(420px,1.22fr);
-  gap:6vw;
-  align-items:start;
-}
-.thinking-copy{
-  position:sticky;
-  top:110px;
-}
-.thinking-copy h2{
-  margin:10px 0 18px;
-  font-size:clamp(40px,5.4vw,74px);
-  line-height:.97;
-  letter-spacing:-.055em;
-}
-.thinking-copy p{
-  max-width:500px;
-  color:var(--muted);
-}
-.route-board{
-  border-top:1px solid var(--text);
-  border-bottom:1px solid var(--text);
-  padding:24px 0 18px;
-}
-.objective{
-  font-size:12px;
-  font-weight:700;
-  color:var(--rust);
-  text-transform:uppercase;
-  letter-spacing:.08em;
-  margin-bottom:20px;
-}
-.route{
-  display:grid;
-  grid-template-columns:58px 1fr;
-  gap:16px;
-  padding:18px 0;
-  border-top:1px solid var(--rule);
-}
-.route:last-child{border-bottom:1px solid var(--rule)}
-.route-no{
-  font-size:12px;
-  font-weight:700;
-  color:var(--navy);
-}
-.route strong{
-  display:block;
-  font-size:20px;
-  margin-bottom:4px;
-}
-.route span{color:var(--muted)}
-.route.highlight{
-  margin:0 -12px;
-  padding-left:12px;
-  padding-right:12px;
-  background:var(--navy-soft);
-}
+    .case {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(300px, .72fr);
+      gap: clamp(3rem, 7vw, 9rem);
+      align-items: center;
+      padding: clamp(3rem, 5.5vw, 6.5rem) 3vw clamp(4.5rem, 7.5vw, 9rem);
+      border-top: 1px solid var(--line);
+    }
+    .case-tag { color: var(--orange); }
+    .case h3, .systems-copy h3 {
+      max-width: 900px;
+      margin: .45em 0 .55em;
+      font-size: clamp(2.1rem, 4.15vw, 5.2rem);
+      font-weight: 700;
+      line-height: .98;
+      letter-spacing: -.055em;
+    }
+    .case-copy { max-width: 720px; color: var(--muted); font-size: clamp(1rem, 1.15vw, 1.2rem); line-height: 1.65; }
+    .metric { min-width: 0; }
+    .metric-value {
+      display: block;
+      white-space: nowrap;
+      font-size: clamp(3.35rem, 7.65vw, 9.6rem);
+      font-weight: 800;
+      line-height: .82;
+      letter-spacing: -.075em;
+      font-variant-numeric: tabular-nums;
+    }
+    .metric-value i { color: var(--orange); font-style: normal; font-weight: 400; }
+    .metric-caption {
+      max-width: 380px;
+      margin-top: 1.8rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--orange);
+      color: #c4c3bd;
+      font-size: .9rem;
+      line-height: 1.55;
+    }
+    .route-note {
+      position: absolute;
+      right: 3vw;
+      bottom: 2rem;
+      color: var(--dim);
+      font-family: var(--serif);
+      font-size: .73rem;
+      font-style: italic;
+    }
+    .case-scale {
+      grid-template-columns: minmax(300px, .72fr) minmax(0, 1.08fr);
+      margin-inline: -3vw;
+      padding-inline: 6vw;
+      background: var(--surface);
+    }
 
-/* SIDE QUESTS */
-#sidequests{
-  padding-top:78px;
-  padding-bottom:42px;
-}
-#making{
-  padding-top:48px;
-  padding-bottom:76px;
-}
-.sidequests-grid{
-  display:grid;
-  grid-template-columns:1.08fr .92fr;
-  gap:6vw;
-  align-items:start;
-}
-.sidequests-grid h2{
-  margin:10px 0 18px;
-  font-size:clamp(40px,5vw,70px);
-  line-height:.97;
-  letter-spacing:-.05em;
-}
-.sidequests-grid p{
-  max-width:650px;
-  color:var(--muted);
-}
-.note-card{
-  margin-top:30px;
-  max-width:520px;
-  border:1px solid var(--text);
-  background:#fff;
-  padding:20px 22px;
-}
-.note-card strong{color:var(--green)}
-.quest-list{border-top:1px solid var(--rule)}
-.quest{
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  padding:16px 0;
-  border-bottom:1px solid var(--rule);
-  font-size:15px;
-}
-.quest small{
-  color:var(--rust);
-  font-size:11px;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.07em;
-}
+    .systems {
+      padding: clamp(3.2rem, 6vw, 7rem) 3vw clamp(4rem, 6vw, 6.5rem);
+      border-top: 1px solid var(--line);
+    }
+    .systems-copy { display: grid; grid-template-columns: 1.15fr .55fr; gap: 8vw; align-items: end; }
+    .systems-copy > p { max-width: 540px; color: var(--muted); font-size: clamp(1rem, 1.25vw, 1.25rem); line-height: 1.65; }
+    .system-flow {
+      margin-top: clamp(3rem, 6vw, 6.5rem);
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      border-block: 1px solid #686b6d;
+    }
+    .flow-step {
+      position: relative;
+      min-height: 205px;
+      padding: 1.2rem clamp(.7rem, 1.15vw, 1.3rem) 1.5rem;
+      border-left: 1px solid var(--line);
+    }
+    .flow-step:first-child { border-left: 0; }
+    .flow-number { color: var(--orange); font-size: .64rem; font-weight: 800; letter-spacing: .12em; }
+    .flow-step h4 { margin: 3.6rem 0 .45rem; font-size: clamp(.88rem, 1.08vw, 1.2rem); line-height: 1.15; }
+    .flow-step p { color: var(--dim); font-size: .75rem; line-height: 1.4; }
+    .flow-arrow {
+      position: absolute;
+      z-index: 2;
+      right: -12px;
+      top: 54%;
+      width: 24px;
+      height: 24px;
+      display: grid;
+      place-items: center;
+      background: var(--bg);
+      border: 1px solid #55585a;
+      border-radius: 50%;
+      color: var(--orange);
+      font-size: .75rem;
+    }
 
-/* WRITING + BUILDING */
-.makers{
-  display:grid;
-  grid-template-columns:.93fr 1.07fr;
-  gap:6vw;
-  align-items:start;
-}
-.panel{
-  border-top:4px solid var(--text);
-  padding-top:18px;
-}
-.panel.offset{margin-top:64px}
-.panel h3{
-  margin:4px 0 12px;
-  font-size:clamp(30px,3.6vw,46px);
-  line-height:1.02;
-  letter-spacing:-.04em;
-}
-.panel p{color:var(--muted);max-width:620px}
-.panel-links{
-  display:flex;
-  flex-wrap:wrap;
-  gap:16px 18px;
-  margin-top:22px;
-  font-size:13px;
-  font-weight:700;
-}
-.panel-links a{
-  border-bottom:1px solid var(--text);
-  padding-bottom:3px;
-}
-.panel-links a:hover{color:var(--rust);border-color:var(--rust)}
+    .thinking {
+      display: grid;
+      grid-template-columns: .68fr 1.32fr;
+      gap: clamp(4rem, 10vw, 12rem);
+      padding: clamp(5rem, 8vw, 9rem) 3vw clamp(6rem, 10vw, 12rem);
+    }
+    .thinking-title { align-self: start; position: sticky; top: 2rem; }
+    .thinking-title .aside { max-width: 300px; margin-top: 1.7rem; color: var(--muted); }
+    .thinking-list { list-style: none; margin: 0; padding: 0; counter-reset: instinct; }
+    .thinking-list li {
+      counter-increment: instinct;
+      position: relative;
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 1.2rem;
+      padding: clamp(1.8rem, 3vw, 3.3rem) 0;
+      border-top: 1px solid var(--line);
+    }
+    .thinking-list li:last-child { border-bottom: 1px solid var(--line); }
+    .thinking-list li::before {
+      content: "0" counter(instinct);
+      color: var(--orange);
+      font-size: .67rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      padding-top: .32rem;
+    }
+    .thinking-list p { max-width: 850px; font-size: clamp(1.28rem, 2.2vw, 2.55rem); line-height: 1.2; letter-spacing: -.025em; }
+    .thinking-list small { display: block; margin-top: .8rem; color: var(--dim); font-family: var(--serif); font-style: italic; }
 
-/* CONTACT */
-.contact{
-  margin:88px calc(var(--pad)*-1) 0;
-  background:var(--navy);
-  color:#fff;
-  padding:68px var(--pad) 64px;
-}
-.contact-grid{
-  display:grid;
-  grid-template-columns:1fr 180px;
-  gap:5vw;
-  align-items:end;
-}
-.contact h2{
-  margin:0;
-  max-width:900px;
-  font-size:clamp(50px,6.8vw,94px);
-  line-height:.9;
-  letter-spacing:-.06em;
-}
-.contact p{
-  max-width:620px;
-  margin:20px 0 0;
-  color:#C7D7E1;
-}
-.contact .label{
-  color:#B8D0DF;
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-}
-.contact .panel-links a{border-color:#fff}
-.contact-avatar{
-  width:165px;
-  height:165px;
-  object-fit:cover;
-  border-radius:50%;
-  border:2px solid #fff;
-  background:#fff;
-}
+    .character {
+      background: var(--acid);
+      color: #0a0b0c;
+      padding: clamp(4.5rem, 8vw, 9.5rem) 0 clamp(5rem, 9vw, 10rem);
+    }
+    .character-title {
+      display: grid;
+      grid-template-columns: .38fr 1fr .48fr;
+      gap: clamp(2rem, 5vw, 6rem);
+      align-items: end;
+      margin-inline: 3vw;
+    }
+    .character-title .aside { max-width: 350px; font-size: 1.05rem; line-height: 1.5; }
+    .universes {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr 1fr 1.2fr;
+      gap: clamp(.8rem, 1.4vw, 1.5rem);
+      align-items: end;
+      margin-top: clamp(3.5rem, 6vw, 7rem);
+    }
+    .universe {
+      position: relative;
+      min-height: 350px;
+      padding: clamp(1.2rem, 2vw, 2rem);
+      border: 2px solid #0a0b0c;
+      overflow: hidden;
+    }
+    .universe h3 { position: relative; margin: 1rem 0 .8rem; font-size: clamp(1.9rem, 2.8vw, 3.5rem); line-height: .95; letter-spacing: -.045em; }
+    .universe p { position: relative; max-width: 28ch; font-size: .92rem; line-height: 1.5; }
+    .football { background: #133e2d; color: #f4f0e5; transform: rotate(-1deg); }
+    .pitch {
+      position: absolute;
+      inset: 16px;
+      border: 1px solid #ffffff66;
+    }
+    .pitch::before { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; border-left: 1px solid #ffffff66; }
+    .pitch::after { content: ""; position: absolute; left: 50%; top: 50%; width: 76px; height: 76px; border: 1px solid #ffffff66; border-radius: 50%; transform: translate(-50%, -50%); }
+    .score { position: relative; display: inline-block; padding: .35rem .55rem; background: var(--yellow); color: #080808; font-size: .72rem; font-weight: 900; transform: rotate(2deg); }
+    .football .caption { position: absolute; left: 2rem; bottom: 1.5rem; font-size: .63rem; letter-spacing: .12em; }
+    .manga { background: #f7f2e9; transform: translateY(-2.6rem); clip-path: polygon(0 4%, 100% 0, 94% 100%, 4% 96%); }
+    .manga::before { content: ""; position: absolute; inset: -50% -20%; background: repeating-conic-gradient(from 0deg at 70% 40%, #111 0 1deg, transparent 1deg 10deg); opacity: .14; }
+    .speech { position: relative; display: inline-block; padding: .85rem 1rem; background: var(--pink); border: 2px solid #111; border-radius: 50%; font-size: .75rem; font-weight: 900; transform: rotate(5deg); }
+    .film { min-height: 400px; background: #101113; color: #f5f1e8; }
+    .film::before, .film::after { content: "■ ■ ■ ■ ■ ■"; position: absolute; left: 0; right: 0; color: var(--yellow); font-size: .65rem; letter-spacing: .65em; white-space: nowrap; overflow: hidden; }
+    .film::before { top: .65rem; }.film::after { bottom: .65rem; }
+    .film h3 { margin-top: 3rem; }
+    .stars { position: absolute; left: 2rem; bottom: 3rem; color: var(--yellow); letter-spacing: .2em; }
+    .writing { background: #e6d6bd; transform: rotate(1deg); }
+    .writing::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(transparent 0 31px, #7e766b55 31px 32px); }
+    .quote-mark { position: relative; display: block; height: 4rem; color: var(--orange); font-family: var(--serif); font-size: 7rem; line-height: .8; }
+    .margin-note { position: absolute; right: 1.2rem; bottom: 1rem; font-family: var(--serif); font-size: .72rem; font-style: italic; transform: rotate(-4deg); }
 
-footer{
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  padding:26px 0 42px;
-  color:#666;
-  font-size:11px;
-  font-weight:700;
-}
+    .making { padding: clamp(5rem, 10vw, 12rem) 3vw; }
+    .making-grid { display: grid; grid-template-columns: 1fr .62fr; gap: clamp(4rem, 10vw, 12rem); margin-top: 1.8rem; }
+    .making-copy { max-width: 640px; font-size: clamp(1.1rem, 1.55vw, 1.55rem); line-height: 1.6; color: #cac9c3; }
+    .making-links { display: grid; gap: 1rem; margin-top: 2.6rem; }
+    .making-links a { display: flex; justify-content: space-between; padding-bottom: .75rem; border-bottom: 1px solid #555; font-size: .92rem; font-weight: 800; }
+    .making-links a:hover { border-color: var(--orange); color: var(--orange); }
 
-@media(max-width:920px){
-  .growth-metric{
-    font-size:clamp(46px,11vw,72px);
-  }
-  .hero,
-  .work-one,
-  .work-three,
-  .thinking-grid,
-  .sidequests-grid,
-  .makers,
-  .contact-grid{
-    grid-template-columns:1fr;
-  }
-  .portrait-wrap{
-    justify-self:start;
-    width:min(72vw,320px);
-  }
-  .work-two{grid-template-columns:1fr}
-  .thinking-copy{position:static}
-  .panel.offset{margin-top:0}
-}
+    .contact { background: var(--ink); color: #090a0b; padding: clamp(4rem, 8vw, 9rem) 0 2rem; }
+    .contact-grid { display: grid; grid-template-columns: minmax(230px, 355px) 1fr; gap: clamp(4rem, 9vw, 11rem); align-items: center; padding-inline: 3vw; }
+    .contact .portrait-frame { box-shadow: 14px 14px 0 #090a0b; background: #d4d0c6; }
+    .contact h2 { margin: .2em 0 .3em; font-size: clamp(3.2rem, 7.2vw, 9rem); font-weight: 800; line-height: .86; letter-spacing: -.07em; }
+    .contact h2 em { display: block; color: var(--orange); font-family: var(--serif); font-size: .7em; font-weight: 400; letter-spacing: -.045em; }
+    .contact-copy { max-width: 570px; font-size: .96rem; line-height: 1.55; color: #4f504d; }
+    .contact .social-row a { border-color: #777; }
+    .contact .social-row a:hover { border-color: #0a0b0c; }
+    .contact .social-row a span { color: var(--orange); }
+    .footer-line { display: flex; justify-content: space-between; gap: 2rem; margin-top: clamp(4rem, 7vw, 8rem); padding: 1.4rem 3vw 0; border-top: 1px solid #9e9b93; color: #595955; font-size: .7rem; }
 
-@media(max-width:760px){
-  .nav{
-    display:none;
-    position:absolute;
-    top:74px;
-    left:var(--pad);
-    right:var(--pad);
-    background:#fff;
-    border-top:1px solid var(--rule);
-    border-bottom:1px solid var(--rule);
-    flex-direction:column;
-    gap:0;
-    padding:14px 0;
-  }
-  .nav.open{display:flex}
-  .nav a{padding:11px 0}
-  .menu{display:inline-flex;align-items:center;justify-content:flex-end}
-  .section-head,
-  .idea-strip-grid{grid-template-columns:1fr;gap:16px}
-}
+    [data-reveal] { opacity: 0; transform: translateY(22px); transition: opacity .68s ease, transform .68s cubic-bezier(.2,.7,.2,1); }
+    [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+    .metric[data-reveal] { transform: translateY(18px) scale(.985); }
+    .metric[data-reveal].is-visible { transform: none; }
+    .flow-step[data-reveal] { transition-delay: var(--delay, 0ms); }
+    .universe[data-reveal]:nth-child(2) { transition-delay: 80ms; }
+    .universe[data-reveal]:nth-child(3) { transition-delay: 150ms; }
+    .universe[data-reveal]:nth-child(4) { transition-delay: 220ms; }
 
-@media(max-width:540px){
-  .hero h1{font-size:54px}
-  .growth-metric{
-    font-size:44px;
-    gap:.04em .14em;
-  }
-  .work-two{
-    padding-top:42px;
-    padding-bottom:46px;
-  }
-  #sidequests{
-    padding-bottom:30px;
-  }
-  #making{
-    padding-top:34px;
-  }
-  .hero h1 .accent{display:inline}
-  .portrait-note{left:8px}
-  .section-head h2,.thinking-copy h2,.sidequests-grid h2{font-size:42px}
-  .system-map{min-height:280px}
-  .contact h2{font-size:52px}
-  footer{flex-direction:column}
-}
+    @media (max-width: 1050px) {
+      .hero { grid-template-columns: minmax(0, 1.2fr) minmax(250px, .6fr); gap: 3.5rem; }
+      .principle-grid, .section-lead, .character-title { grid-template-columns: .28fr 1fr; }
+      .principle-note, .section-lead .context, .character-title .aside { grid-column: 2; justify-self: start; }
+      .case { grid-template-columns: 1fr 1fr; gap: 3rem; }
+      .systems-copy { grid-template-columns: 1fr .65fr; }
+      .system-flow { grid-template-columns: repeat(4, 1fr); }
+      .flow-step:nth-child(5) { border-left: 0; }
+      .flow-step { border-bottom: 1px solid var(--line); }
+      .flow-arrow { display: none; }
+      .universes { grid-template-columns: 1fr 1fr; align-items: stretch; }
+      .manga { transform: none; }
+      .contact-grid { grid-template-columns: minmax(220px, 310px) 1fr; gap: 5rem; }
+    }
 
-@supports (-webkit-touch-callout: none){
-  @media(max-width:920px){
-    .thinking-copy{position:static}
-  }
-}
+    @media (max-width: 760px) {
+      .site-nav { min-height: 92px; align-items: flex-start; padding-block: 1rem .8rem; flex-direction: column; gap: .7rem; }
+      .nav-links { width: 100%; justify-content: space-between; gap: .7rem; overflow-x: auto; padding-bottom: .15rem; }
+      .nav-links a { white-space: nowrap; }
+      .hero { min-height: 0; grid-template-columns: 1fr; padding: 4rem 0 5rem; }
+      .hero h1 { font-size: clamp(4rem, 16.5vw, 7.3rem); }
+      .hero h1 .last-line { padding-left: 0; }
+      .portrait-block { width: min(76vw, 350px); margin-top: 1rem; }
+      .principle-grid, .section-lead, .character-title { grid-template-columns: 1fr; }
+      .principle-note, .section-lead .context, .character-title .aside { grid-column: 1; }
+      .principle-note { justify-self: end; }
+      .section-lead { margin-inline: 0; }
+      .case, .case-scale, .systems-copy, .thinking, .making-grid, .contact-grid { grid-template-columns: 1fr; }
+      .case-scale .metric { order: 2; }
+      .route-note { display: none; }
+      .systems { padding-inline: 0; }
+      .system-flow { grid-template-columns: 1fr 1fr; }
+      .flow-step:nth-child(odd) { border-left: 0; }
+      .flow-step:nth-child(5) { border-left: 0; }
+      .thinking { gap: 3rem; padding-inline: 0; }
+      .thinking-title { position: static; }
+      .character-title { margin-inline: 0; }
+      .contact-grid { padding-inline: 0; }
+      .contact-grid .portrait-block { width: min(70vw, 340px); }
+    }
 
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *{transition:none!important;animation:none!important}
-}
-</style>
+    @media (max-width: 520px) {
+      :root { --page: min(90vw, 1720px); }
+      .nav-links a:nth-child(3) { display: none; }
+      .hero h1 { font-size: clamp(3.75rem, 18.4vw, 5.6rem); line-height: .84; }
+      .principle-grid { min-height: 0; padding: 2.5rem 0; }
+      .principle-text { font-size: clamp(1.65rem, 8vw, 2.5rem); }
+      .section-lead h2, .thinking-title h2, .character-title h2, .making h2 { font-size: clamp(2.7rem, 13.5vw, 4.4rem); }
+      .case { padding-inline: 0; gap: 2.8rem; }
+      .case-scale { margin-inline: -5vw; padding-inline: 5vw; }
+      .metric-value { font-size: clamp(3rem, 15vw, 4.4rem); }
+      .system-flow { grid-template-columns: 1fr; }
+      .flow-step { min-height: 0; display: grid; grid-template-columns: 35px 1fr 1fr; gap: .5rem; padding: 1.15rem 0; border-left: 0; }
+      .flow-step h4 { margin: 0; }
+      .universes { grid-template-columns: 1fr; }
+      .universe, .film { min-height: 310px; transform: none; }
+      .thinking-list li { grid-template-columns: 38px 1fr; gap: .7rem; }
+      .making { padding-inline: 0; }
+      .contact h2 { font-size: clamp(3.25rem, 16vw, 5.3rem); }
+      .footer-line { flex-direction: column; gap: .3rem; padding-inline: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      [data-reveal] { opacity: 1; transform: none; }
+    }
+  </style>
 </head>
-
 <body>
-<div class="shell">
+  <a class="skip" href="#main">Skip to content</a>
 
-<header class="topbar">
-  <a class="brand" href="#top">HRIDAY MEHTA</a>
-
-  <nav class="nav" id="nav" aria-label="Primary">
-    <a href="#work">Work</a>
-    <a href="#thinking">Thinking</a>
-    <a href="#sidequests">Side quests</a>
-    <a href="#making">Writing & building</a>
-    <a href="#contact">Contact</a>
+  <nav class="site-nav shell" aria-label="Primary navigation">
+    <a class="wordmark" href="#top" aria-label="Hriday Mehta, home">Hriday Mehta<i>.</i></a>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#thinking">Thinking</a>
+      <a href="#side-quests">Side quests</a>
+      <a href="#making">Making</a>
+      <a href="#contact">Contact</a>
+    </div>
   </nav>
 
-  <button class="menu" id="menuButton" aria-controls="nav" aria-expanded="false">
-    Menu
-  </button>
-</header>
-
-<main id="top">
-
-<section class="hero">
-  <div>
-    <div class="kicker">Product thinker + ambitious builder</div>
-
-    <h1>
-      <span class="normal">I like messy</span>
-      <span class="accent">problems.</span>
-    </h1>
-
-    <p>
-      Product Manager at Axis Bank. I like systems with awkward constraints,
-      problems that need one extra question, and work that gets more interesting
-      once you stop accepting the first obvious answer.
-    </p>
-
-    <div class="hero-links">
-      <a href="https://www.linkedin.com/in/hridaymehta56" target="_blank" rel="noreferrer">LinkedIn</a>
-      <a href="https://github.com/mehtahriday" target="_blank" rel="noreferrer">GitHub</a>
-      <a href="https://substack.com/@hridaymprodman" target="_blank" rel="noreferrer">Substack</a>
-    </div>
-  </div>
-
-  <div class="portrait-wrap" aria-label="Illustrated portrait of Hriday Mehta">
-    <div class="portrait-shadow"></div>
-
-    <img
-      class="portrait"
-      src="hriday-avatar.jpg"
-      alt="Illustrated portrait of Hriday Mehta"
-      decoding="async"
-      fetchpriority="high"
-    >
-
-    <div class="portrait-note">
-      Yes, this is me as a character.
-    </div>
-  </div>
-</section>
-
-<div class="idea-strip">
-  <div class="idea-strip-grid">
-    <div class="label">The operating principle</div>
-
-    <p>
-      The first solution is often just the
-      <span class="accent">first visible route.</span>
-      I care more about the actual objective than defending the route we started with.
-    </p>
-  </div>
-</div>
-
-<section id="work">
-
-  <div class="section-head">
-    <div class="label">Selected work</div>
-
-    <div>
-      <h2>Three product problems. Three very different shapes.</h2>
-
-      <p>
-        Public-safe portfolio version. Real work, real metrics, and enough context
-        to show how I think — without dumping confidential internals onto the page.
-      </p>
-    </div>
-  </div>
-
-  <div class="work-block">
-
-    <article class="work-one">
-      <div>
-        <div class="case-tag">01 / Customer journey</div>
-
-        <h3>From redirect friction to a native partner experience.</h3>
-
-        <p class="case-copy">
-          The earlier partner flow depended on a redirect / WebView experience.
-          We changed the model: expose the right backend APIs, let partner applications
-          host the journey natively, and remove a layer of friction the customer never asked for.
-        </p>
-      </div>
-
-      <div class="metric">
-        <strong>51% → 75%</strong>
-        <span>Journey completion after moving toward a native API-led partner experience.</span>
-      </div>
-    </article>
-
-    <article class="work-two">
-
-      <div>
-        <div
-          class="growth-metric"
-          aria-label="Monthly transactions grew from approximately 4 thousand to 12 thousand"
-        >
-          <span>~4K</span>
-          <span class="arrow">→</span>
-          <span>12K</span>
-        </div>
-
-        <div class="small-note">
-          Monthly transactions scaled during the period I worked on the product.
+  <main id="main">
+    <header class="hero shell" id="top">
+      <div class="hero-copy" data-reveal>
+        <p class="kicker orange">Product thinker + ambitious builder</p>
+        <h1>I work where money moves <span class="last-line">and systems get complicated.</span></h1>
+        <p class="hero-deck">I work on digital products at the intersection of customer journeys, payments, operations, and scale, usually where the problem is a little more complicated than it first appears.</p>
+        <div class="social-row" aria-label="Social links">
+          <a href="https://linkedin.com/in/hridaymehta56" target="_blank" rel="noopener noreferrer">LinkedIn <span>↗</span></a>
+          <a href="https://github.com/mehtahriday" target="_blank" rel="noopener noreferrer">GitHub <span>↗</span></a>
+          <a href="https://substack.com/@hridaymprodman" target="_blank" rel="noopener noreferrer">Substack <span>↗</span></a>
         </div>
       </div>
 
-      <div>
-        <div class="case-tag">02 / Scale</div>
+      <figure class="portrait-block" data-reveal>
+        <div class="portrait-frame">
+          <img src="hriday-avatar.jpg" alt="Illustrated portrait of Hriday Mehta" width="700" height="875">
+        </div>
+        <figcaption class="portrait-caption">Yes, this is me as a character.</figcaption>
+      </figure>
+    </header>
 
-        <h3>
-          Growth was not one feature. It was a lot of small removals of friction.
-        </h3>
-
-        <p>
-          Journey improvements. Product fixes. Operational bottlenecks.
-          Platform capabilities. Post-launch iteration. The product scaled
-          because the system around the customer kept getting better.
-        </p>
+    <section class="principle" aria-labelledby="principle-heading">
+      <div class="principle-grid shell" data-reveal>
+        <h2 class="kicker" id="principle-heading">The operating principle</h2>
+        <p class="principle-text">The first solution is often just the first visible route. I care more about the actual objective than defending the route we started with.</p>
+        <p class="principle-note">routes change. objectives survive.</p>
       </div>
-    </article>
+    </section>
 
-    <article class="work-three">
-
-      <div
-        class="system-map"
-        aria-label="System map showing multiple systems feeding one customer journey"
-      >
-        <svg
-          viewBox="0 0 600 360"
-          role="img"
-          aria-labelledby="systemMapTitle systemMapDesc"
-        >
-          <title id="systemMapTitle">
-            Systems behind the customer journey
-          </title>
-
-          <desc id="systemMapDesc">
-            Authentication, pricing and FX, core banking, and operations connect into one customer journey.
-          </desc>
-
-          <line class="flow-line" x1="180" y1="90" x2="300" y2="180"></line>
-          <line class="flow-line" x1="420" y1="90" x2="300" y2="180"></line>
-          <line class="flow-line" x1="180" y1="270" x2="300" y2="180"></line>
-          <line class="flow-line" x1="420" y1="270" x2="300" y2="180"></line>
-
-          <rect class="flow-box" x="55" y="48" width="170" height="62" rx="4"></rect>
-          <text x="140" y="79">Authentication</text>
-
-          <rect class="flow-box" x="375" y="48" width="170" height="62" rx="4"></rect>
-          <text x="460" y="79">Pricing / FX</text>
-
-          <rect class="flow-box" x="55" y="250" width="170" height="62" rx="4"></rect>
-          <text x="140" y="281">Core banking</text>
-
-          <rect class="flow-box" x="375" y="250" width="170" height="62" rx="4"></rect>
-          <text x="460" y="281">Operations</text>
-
-          <rect class="flow-center" x="205" y="143" width="190" height="74" rx="4"></rect>
-          <text class="center-text" x="300" y="180">Customer journey</text>
-        </svg>
+    <section class="work shell" id="work" aria-labelledby="work-heading">
+      <div class="section-lead" data-reveal>
+        <p class="kicker orange">Selected work</p>
+        <h2 id="work-heading">Three product problems.<br>Three very different shapes.</h2>
+        <p class="context">Public-safe portfolio version. Real work, real metrics, and enough context to show how I think without dumping confidential internals onto the page.</p>
       </div>
 
-      <div>
-        <div class="case-tag">03 / Systems</div>
+      <article class="case">
+        <div data-reveal>
+          <p class="kicker case-tag">01 / Customer journey</p>
+          <h3>From redirection friction to an in-app partner experience.</h3>
+          <p class="case-copy">The earlier partner flow depended on a redirect / WebView experience. We changed the model: expose the right backend APIs, let partner applications host the journey natively, and remove a layer of friction the customer never asked for.</p>
+        </div>
+        <div class="metric" data-reveal>
+          <span class="metric-value">41% <i>→</i> 75%</span>
+          <p class="metric-caption">Journey completion after moving toward a native API-led partner experience.</p>
+        </div>
+        <p class="route-note">Less redirecting. More completing.</p>
+      </article>
 
-        <h3>The customer should not have to understand the backend.</h3>
+      <article class="case case-scale">
+        <div class="metric" data-reveal>
+          <span class="metric-value">~4K <i>→</i> 12K</span>
+          <p class="metric-caption">Monthly transactions scaled during the period I worked on the product.</p>
+        </div>
+        <div data-reveal>
+          <p class="kicker case-tag">02 / Scale</p>
+          <h3>Growth was not one feature. It was a lot of small removals of friction.</h3>
+          <p class="case-copy">Journey improvements. Product fixes. Operational bottlenecks. Platform capabilities. Post-launch iteration. The product scaled because the system around the customer kept getting better.</p>
+        </div>
+      </article>
 
-        <p class="case-copy">
-          Financial products sit across authentication, pricing, core banking,
-          partner platforms, transaction systems, compliance checks and operations.
-          My job is to understand that complexity without exporting it to the customer.
-        </p>
+      <article class="systems" aria-labelledby="systems-heading">
+        <div class="systems-copy" data-reveal>
+          <div>
+            <p class="kicker case-tag">03 / Systems</p>
+            <h3 id="systems-heading">I do not only think about screens.</h3>
+          </div>
+          <p>I think about how the full system behaves: what the customer sees, what the platform decides, and what operations inherits when the two do not agree.</p>
+        </div>
+
+        <div class="system-flow" aria-label="A product ecosystem from customer intent to fulfilment">
+          <div class="flow-step" data-reveal style="--delay:0ms"><span class="flow-number">01</span><h4>Customer</h4><p>Intent begins</p><span class="flow-arrow" aria-hidden="true">→</span></div>
+          <div class="flow-step" data-reveal style="--delay:65ms"><span class="flow-number">02</span><h4>Partner / bank</h4><p>Channel context</p><span class="flow-arrow" aria-hidden="true">→</span></div>
+          <div class="flow-step" data-reveal style="--delay:130ms"><span class="flow-number">03</span><h4>Authentication</h4><p>Identity + validations</p><span class="flow-arrow" aria-hidden="true">→</span></div>
+          <div class="flow-step" data-reveal style="--delay:195ms"><span class="flow-number">04</span><h4>Product platform</h4><p>Rules + orchestration</p><span class="flow-arrow" aria-hidden="true">→</span></div>
+          <div class="flow-step" data-reveal style="--delay:260ms"><span class="flow-number">05</span><h4>Pricing / compliance</h4><p>Rate, purpose, checks</p><span class="flow-arrow" aria-hidden="true">→</span></div>
+          <div class="flow-step" data-reveal style="--delay:325ms"><span class="flow-number">06</span><h4>Processing</h4><p>The money moves</p><span class="flow-arrow" aria-hidden="true">→</span></div>
+          <div class="flow-step" data-reveal style="--delay:390ms"><span class="flow-number">07</span><h4>Status / fulfilment</h4><p>The promise closes</p></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="thinking shell" id="thinking" aria-labelledby="thinking-heading">
+      <div class="thinking-title" data-reveal>
+        <p class="kicker orange">How I think</p>
+        <h2 id="thinking-heading">A working set of product instincts.</h2>
+        <p class="aside">Not a framework. More like the questions that keep returning.</p>
       </div>
-    </article>
+      <ol class="thinking-list">
+        <li data-reveal><div><p>I usually start by asking what problem we are actually solving. The ticket is not always the problem.</p><small>Start one layer below the request.</small></div></li>
+        <li data-reveal><div><p>I care more about the objective than defending the first solution. Attachment is expensive.</p><small>Keep the goal. Re-negotiate the route.</small></div></li>
+        <li data-reveal><div><p>Customer experience is shaped by systems, operations, compliance and architecture. The interface only tells part of the story.</p><small>A clean screen can still hide a broken product.</small></div></li>
+        <li data-reveal><div><p>I look for the smallest change that can unlock the largest improvement. Small and easy are not the same thing.</p><small>Leverage beats theatre.</small></div></li>
+        <li data-reveal><div><p>Shipping ends the debate and begins the evidence. Behaviour after launch is when the product starts teaching you things.</p><small>The roadmap does not get the final word.</small></div></li>
+      </ol>
+    </section>
 
-  </div>
-</section>
+    <section class="character" id="side-quests" aria-labelledby="character-heading">
+      <div class="shell">
+        <div class="character-title" data-reveal>
+          <p class="kicker">Off the roadmap</p>
+          <h2 id="character-heading">A little character,<br>not a biography.</h2>
+          <p class="aside">I have interests I can disappear into for hours. This is the less employable, more accurate part of the page.</p>
+        </div>
 
-<section id="thinking" class="thinking">
-
-  <div class="thinking-grid">
-
-    <div class="thinking-copy">
-      <div class="kicker">How I think</div>
-
-      <h2>The door is not the problem.</h2>
-
-      <p>
-        If the goal is to get to the other side, breaking the door is just one option.
-        Sometimes it is right. Sometimes it is lazy. I like looking at the whole system
-        before choosing the route.
-      </p>
-    </div>
-
-    <div class="route-board">
-
-      <div class="objective">
-        Objective: get to the other side
-      </div>
-
-      <div class="route">
-        <div class="route-no">A</div>
-
-        <div>
-          <strong>Break the door</strong>
-          <span>The obvious answer. Sometimes correct. Sometimes just familiar.</span>
+        <div class="universes">
+          <article class="universe football" data-reveal>
+            <div class="pitch" aria-hidden="true"></div>
+            <span class="score">90:00</span>
+            <h3>Football</h3>
+            <p>Ninety minutes of systems, emotion, and unreasonable loyalty.</p>
+            <span class="caption">TACTICS / CHAOS / MOURINHO</span>
+          </article>
+          <article class="universe manga" data-reveal>
+            <span class="speech">ONE MORE EPIS?</span>
+            <h3>Manga<br>& anime</h3>
+            <p>Big worlds. Bigger convictions. A perfectly normal amount of One Piece.</p>
+          </article>
+          <article class="universe film" data-reveal>
+            <h3>Films<br>& TV</h3>
+            <p>Stories that linger after the credits are the ones worth arguing about.</p>
+            <div class="stars" aria-label="Four out of five stars">★ ★ ★ ★ ☆</div>
+          </article>
+          <article class="universe writing" data-reveal>
+            <span class="quote-mark">“</span>
+            <h3>Writing,<br>books & ideas</h3>
+            <p>Sometimes I write to explain an idea. Mostly I write to find out what I actually think.</p>
+            <span class="margin-note">keep the margins messy</span>
+          </article>
         </div>
       </div>
+    </section>
 
-      <div class="route highlight">
-        <div class="route-no">B</div>
-
-        <div>
-          <strong>Question the constraint</strong>
-          <span>Do we need the door? Is the wall easier? Can the journey be redesigned?</span>
+    <section class="making shell" id="making" aria-labelledby="making-heading">
+      <p class="kicker orange" data-reveal>Writing + building</p>
+      <div class="making-grid">
+        <h2 id="making-heading" data-reveal>I think better when I make something.</h2>
+        <div data-reveal>
+          <p class="making-copy">I can keep turning an idea around in my head until it sounds perfect, or put a rough version in front of me and find the flaw in ten minutes. I trust the second method more.</p>
+          <div class="making-links">
+            <a href="https://linkedin.com/in/hridaymehta56" target="_blank" rel="noopener noreferrer">Product on LinkedIn. <span>↗</span></a>
+            <a href="https://substack.com/@hridaymprodman" target="_blank" rel="noopener noreferrer">Everything else on Substack. <span>↗</span></a>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="route">
-        <div class="route-no">C</div>
-
-        <div>
-          <strong>Find the lower-resistance route</strong>
-          <span>Jump. Go around. Dig. Remove the wall. Use what actually works.</span>
+    <footer class="contact" id="contact" aria-labelledby="contact-heading">
+      <div class="contact-grid shell">
+        <figure class="portrait-block" data-reveal>
+          <div class="portrait-frame">
+            <img src="hriday-avatar.jpg" alt="Illustrated portrait of Hriday Mehta" width="700" height="875">
+          </div>
+        </figure>
+        <div data-reveal>
+          <p class="kicker">One last thing</p>
+          <h2 id="contact-heading">Interesting problem?<em>I’m probably interested.</em></h2>
+          <p class="contact-copy">If you are building something complicated, fixing something stubborn, or just want to compare notes, say hello.</p>
+          <div class="social-row" aria-label="Contact links">
+            <a href="https://linkedin.com/in/hridaymehta56" target="_blank" rel="noopener noreferrer">LinkedIn <span>↗</span></a>
+            <a href="mailto:mehtahriday5@gmail.com">Email <span>↗</span></a>
+            <a href="https://github.com/mehtahriday" target="_blank" rel="noopener noreferrer">GitHub <span>↗</span></a>
+            <a href="https://substack.com/@hridaymprodman" target="_blank" rel="noopener noreferrer">Substack <span>↗</span></a>
+          </div>
         </div>
       </div>
-
-      <div class="route">
-        <div class="route-no">D</div>
-
-        <div>
-          <strong>Then measure it</strong>
-          <span>A clever answer that does not improve the outcome is still the wrong answer.</span>
-        </div>
+      <div class="footer-line shell">
+        <span>Hriday Mehta · Product Manager</span>
+        <span>Mumbai, India · 2026</span>
       </div>
+    </footer>
+  </main>
 
-    </div>
-  </div>
-</section>
+  <script>
+    (function () {
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var items = document.querySelectorAll('[data-reveal]');
 
-<section id="sidequests">
+      if (reduced || !('IntersectionObserver' in window)) {
+        items.forEach(function (item) { item.classList.add('is-visible'); });
+      } else {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
 
-  <div class="sidequests-grid">
+        items.forEach(function (item) { observer.observe(item); });
+      }
 
-    <div>
-      <div class="kicker">A little character, not a biography</div>
-
-      <h2>
-        I collect ideas from places product books do not usually look.
-      </h2>
-
-      <p>
-        Football, manga, anime, films, TV, writing — I like anything that gives me
-        another model for people, systems, competition, obsession, strategy, or failure.
-      </p>
-
-      <div class="note-card">
-        <strong>Rule for this section:</strong>
-        references are welcome. Oversharing is not.
-      </div>
-    </div>
-
-    <div class="quest-list">
-      <div class="quest">
-        <span>Football</span>
-        <small>systems / space / decisions</small>
-      </div>
-
-      <div class="quest">
-        <span>Anime & manga</span>
-        <small>character / ambition / worlds</small>
-      </div>
-
-      <div class="quest">
-        <span>Films & TV</span>
-        <small>people / conflict / perspective</small>
-      </div>
-
-      <div class="quest">
-        <span>Writing</span>
-        <small>clarity through expression</small>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section id="making">
-
-  <div class="section-head">
-    <div class="label">Writing & building</div>
-
-    <div>
-      <h2>I think better when I make something.</h2>
-    </div>
-  </div>
-
-  <div class="makers">
-
-    <div class="panel">
-      <div class="case-tag">Writing</div>
-
-      <h3>Product on LinkedIn. Everything else on Substack.</h3>
-
-      <p>
-        I do not want to publish just because the algorithm wants consistency.
-        I would rather take one thing I actually care about, form an opinion,
-        and explain it clearly.
-      </p>
-
-      <div class="panel-links">
-        <a href="https://www.linkedin.com/in/hridaymehta56" target="_blank" rel="noreferrer">
-          Read on LinkedIn
-        </a>
-
-        <a href="https://substack.com/@hridaymprodman" target="_blank" rel="noreferrer">
-          Read on Substack
-        </a>
-      </div>
-    </div>
-
-    <div class="panel offset">
-      <div class="case-tag">Building</div>
-
-      <h3>
-        Sometimes the fastest way to understand an idea is to build a rough version.
-      </h3>
-
-      <p>
-        I use Python, AI tools, automation and small prototypes when they help me learn faster.
-        I am not trying to cosplay as an engineer. I want enough technical depth to ask better
-        questions and test ideas before they become expensive.
-      </p>
-
-      <div class="panel-links">
-        <a href="https://github.com/mehtahriday" target="_blank" rel="noreferrer">
-          See GitHub
-        </a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section id="contact" class="contact">
-
-  <div class="contact-grid">
-
-    <div>
-      <div class="label">Contact</div>
-
-      <h2>Interesting problem? I am probably interested.</h2>
-
-      <p>
-        Product roles, fintech, AI, digital platforms, weird product questions,
-        or simply something worth thinking about.
-      </p>
-
-      <div class="panel-links">
-        <a href="mailto:mehtahriday5@gmail.com">Email</a>
-
-        <a href="https://www.linkedin.com/in/hridaymehta56" target="_blank" rel="noreferrer">
-          LinkedIn
-        </a>
-
-        <a href="https://github.com/mehtahriday" target="_blank" rel="noreferrer">
-          GitHub
-        </a>
-      </div>
-    </div>
-
-    <img
-      class="contact-avatar"
-      src="hriday-avatar.jpg"
-      alt="Illustrated portrait of Hriday Mehta"
-      loading="lazy"
-      decoding="async"
-    >
-
-  </div>
-</section>
-
-</main>
-
-<footer>
-  <span>Hriday Mehta / Product Manager</span>
-  <span>Mumbai / 2026</span>
-</footer>
-
-</div>
-
-<script>
-const button=document.getElementById('menuButton');
-const nav=document.getElementById('nav');
-
-button.addEventListener('click',()=>{
-  const open=nav.classList.toggle('open');
-  button.setAttribute('aria-expanded',String(open));
-  button.textContent=open?'Close':'Menu';
-});
-
-nav.querySelectorAll('a').forEach(link=>{
-  link.addEventListener('click',()=>{
-    nav.classList.remove('open');
-    button.setAttribute('aria-expanded','false');
-    button.textContent='Menu';
-  });
-});
-</script>
-
+      document.querySelectorAll('.portrait-frame img').forEach(function (image) {
+        image.addEventListener('error', function () { image.classList.add('is-missing'); });
+        if (image.complete && image.naturalWidth === 0) image.classList.add('is-missing');
+      });
+    }());
+  </script>
 </body>
 </html>
