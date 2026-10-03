@@ -27,3 +27,5 @@ Upload this folder's contents to a static website host, with index.html at the r
 
 
 CV update: design, script and portrait hashes were verified unchanged. Both download links now target the latest PDF.
+
+CV download replaced on 3 October 2026 with the supplied Downloads/Hriday Mehta Resume.pdf. The page copy, styling and interactions were not edited.
